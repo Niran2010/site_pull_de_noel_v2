@@ -1,0 +1,175 @@
+/* --- STYLE GLOBAL --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #d16fe7, #32a543);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* --- CONTAINER DU FORMULAIRE --- */
+.form-container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    animation: fadeIn 0.8s ease;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* --- CHAMPS DE TEXTE --- */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #444;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #5563DE;
+    outline: none;
+    box-shadow: 0 0 5px rgba(85, 99, 222, 0.3);
+}
+
+/* --- BOUTON --- */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5563DE;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4050c0;
+}
+
+/* --- ANIMATION --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- LIEN --- */
+.login-link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #5563DE;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100vh; /* occupe toute la hauteur de l'écran */
+}
+
+.gauche, .droite {
+  flex: 1; /* 50% chacune */
+}
+
+/* Partie gauche : image plein écran */
+.gauche {
+  overflow: hidden; /* coupe ce qui dépasse */
+}
+
+.gauche img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* l’image remplit sans se déformer */
+}
+
+/* Partie droite : contenu du site */
+.droite {
+  background-color: linear-gradient(135deg, #d16fe7, #32a543); /* couleur de fond du site */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centre verticalement */
+}
+
+.btn-retour {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #ccc;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn-retour:hover {
+  background-color: #999;
+}
+
+.pop-up-cache{
+    display: none;                /* caché par défaut */
+    position: fixed;              /* reste au-dessus de tout */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* fond noir semi-transparent */
+    color: red;
+    font-size: 2em;
+    font-family: "Creepster", cursive; /* police horreur */                 /* pour centrer facilement */
+    align-items: center;           /* centre verticalement */
+    justify-content: center;       /* centre horizontalement */
+    text-align: center;
+    z-index: 9999;     
+}
+
+#texte-cache{  
+  font-family: "Creepster", cursive;
+  color: #b30000; /* rouge sang */
+  text-shadow: 2px 2px 5px black;
+}

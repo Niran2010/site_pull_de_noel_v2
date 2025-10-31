@@ -1,0 +1,47 @@
+<html lang="fr">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="menu1.css">
+    <script src ="menu1_script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="gauche">
+            <img src="../images/pere_noel_suspicieux.png" alt="Logo">
+        </div>
+        <div class="droite">
+            <a href="../index.html" class="btn-retour">← Retour</a>
+            <form action="/inscription" method="POST">
+                <h2>Créer un compte</h2>
+
+                <label for="nom">Nom d’utilisateur :</label>
+                <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
+
+                <label for="email">Adresse e-mail :</label>
+                <input type="email" id="email" name="email" placeholder="exemple@mail.com" required>
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" placeholder="********" required>
+
+                <label for="confirm">Confirmez le mot de passe :</label>
+                <input type="password" id="confirm" name="confirm" placeholder="********" required>
+
+                <button type="button" id="btn-creer">Créer le compte</button>
+            </form>
+        </div>
+    <div class="pop-up-cache">
+        <p id="texte-cache">
+            Merci pour ces juteuses informations à revendre.
+        </p>
+    </div>
+    </div>
+
+
+</body>
+
+</html>
