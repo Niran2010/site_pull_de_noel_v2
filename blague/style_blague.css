@@ -1,0 +1,13 @@
+#div{
+    position: absolute;
+}
+#image {
+    /* 1. Dimensions conservées */
+    height: 50vh;
+    width: 100vh;
+    
+    /* 2. Positionnement absolu (pour l'ancrer à un point) */
+    position: fixed; /* Ou 'fixed' pour centrer dans la fenêtre */
+    top: 25%;
+    left: 25%;
+}
