@@ -1,0 +1,58 @@
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Pull de Noël</title>
+</head>
+<body>
+    <div id="cookie-banner" >
+        voulez vous des cookies de Noël (en échange de quelques donnés à revendre, because les lutins aiment le frique). De toutes les façons vous ne pouvez pas refuser.
+        <button id="accept-cookies" >
+            J'accepte
+        </button>
+    </div>
+    <h1>Joyeux Noël</h1>
+    <button class="menu-toggle" id = "box" onclick="toggleMenu()">☰</button>
+
+  <!-- Menu caché -->
+  <nav class="menu" id="menu">
+    <a href="menu1/menu1.html">Accueil</a>
+    <a href="#">À propos</a>
+    <a href="menu2-boutique-XMAS/menu2.html">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div id="age-verification-popup">
+    <a href="blague/blague.html" class="brand" aria-label="X Mas">
+      <img src="images/logo.png" alt="X Mas" class="brand__img">
+    </a>
+    <p id="question">Croyer vous toujours au père Noël ?</p>
+    <div>
+      <button id="btn-yes">Oui j'y crois encore</button>
+      <button id="btn-no">Non je suis trop grand</button>
+    </div>
+    <p id="txt-acce-refuse">
+      Ce site contient du contenue explicite qui ne convient qu'à des enfants croyant encore au père Noël. Il n'est donc malheuresement pas vraiment fait pour vous. (en gros allez vous faire fou***)
+    </p>
+    <img id="access-denied-img" src="images/il_faut_y_croire.jpg" alt="Accès refusé" />
+  </div>
+  
+  <div herf="#" id="popup-genant" class="masque">
+    <img src="images/Homme_déneigeant_devant_la_porte.png" alt="Alerte Pop-up Horrible" id="popup-img">
+    <p id="popup-text">ERREUR FATALE: TROP DE NEIGE DEVANT VOTRE PORTE! 2€ pour un petit netoyage</p>
+  </div>
+
+  <div id="demande-paiement">
+        <p>Un RIB ou un PayPal pour les 2 petits € ?</p>
+        <input type="text" id="rib-paypal-input" placeholder="Entrez votre RIB ou PayPal ici..." required>
+        <button id="btn-valider-paiement">Valider</button>
+  </div>
+
+  <div id="snow-container"></div>
+
+    <div id="flake-counter-display">Flocons accumulés : 0</div>
+  <script src ="script.js"></script>
+</body>
+</html>
