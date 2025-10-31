@@ -56,7 +56,7 @@ const question = document.getElementById('question')
 if (btnYes) {
     btnYes.addEventListener('click', () => {
         if (popup) popup.style.display = 'none';
-        afficherImageTemporaire("images/image_liberte.jpg")
+        afficherImageTemporaire("../images/image_liberte.jpg")
     });
 }
 
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createSnowflake() {
         if (!snowContainer) return;
         const snowflake = document.createElement('img');
-        snowflake.src = 'images/image_flocon-modified.png';
+        snowflake.src = '../images/image_flocon-modified.png';
         snowflake.className = 'snowflake';
 
         const size = Math.random() * 20 + 10;
@@ -285,4 +285,5 @@ document.addEventListener('DOMContentLoaded', () => {
             if (ribPaypalInput) ribPaypalInput.value = "";
         });
     }
+
 });
