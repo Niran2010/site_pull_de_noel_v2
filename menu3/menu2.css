@@ -1,0 +1,165 @@
+body {
+    background-color: #00ff00; /* Vert fluo */
+    color: #ff00ff; /* Magenta fluo */
+    font-family: 'Arial Black', Gadget, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Un fond avec une image basse résolution et répétitive */
+    background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAD/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APx1QA//Z'); /* Miniature d'image très compressée (bruit) */
+    background-repeat: repeat;
+}
+
+/* Bannière de défilement pour la frustration */
+.marquee-container {
+    overflow: hidden;
+    background-color: #ff0000; /* Rouge vif */
+    border: 5px solid yellow;
+    padding: 10px 0;
+}
+
+.marquee-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+    font-size: 30px;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+@keyframes marquee {
+    0%   { transform: translate(100%, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    border: 10px double blue;
+    background-color: rgba(255, 165, 0, 0.7); /* Orange transparent */
+}
+
+/* Styles pour les vues */
+.view {
+    padding: 10px;
+    border: 3px dashed #800080; /* Violet */
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Boutons de catégorie */
+.category-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.category-btn {
+    padding: 20px 10px;
+    font-size: 18px;
+    background-color: #ffff00; /* Jaune */
+    color: #0000ff; /* Bleu */
+    border: none;
+    box-shadow: 5px 5px 0 #ff0000; /* Ombre rouge moche */
+    cursor: url('data:image/x-icon;base64,AAABAAIAICAAAAAAAADoAgAAJgAAAEAAAABIAAAAMAAAACQAACAAAEAAAAAAAAEAAAAAAAAAAAAAAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAEAAAAAAAAAIAAAAQAAAACAAAAAAAAIAAAAEAAAAAAAAAgAAAACAAAAAAAAIAAAAEAAAAAAAAAgAAAACAAAAAAAAIAAAAEAAAAAAAAAgAAAACAAAAAAAAIAAAAEAAAAAAAAAgAAAACAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAAAAAAA'), auto; /* Curseur étrange */
+    transition: transform 0.1s ease-in-out; /* Ajoute un léger lag au clic */
+}
+
+.category-btn:hover {
+    background-color: #ff00ff; /* Change la couleur au survol */
+    color: black;
+    transform: rotate(2deg) scale(1.05); /* L'effet qui dérange */
+}
+
+/* Grille de produits illisible */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px; /* Écart minimal */
+    margin-top: 20px;
+}
+
+.product-card {
+    border: 15px groove #c0c0c0; /* Bordure épaisse et moche */
+    padding: 5px;
+    background-color: #333333; /* Gris foncé */
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Pour les surprises */
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain; /* Laisse l'image déformée si elle ne correspond pas */
+    border: 3px solid #ff00ff;
+    /*filter: sepia(50%) hue-rotate(120deg); /* Filtre visuellement désagréable */
+}
+
+.product-card h3 {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #00ffff; /* Cyan */
+}
+
+.product-card p {
+    font-size: 12px;
+    margin: 2px 0;
+    font-family: sans-serif; /* Changement de police brutal */
+}
+
+/* Un bouton d'achat qui flotte au-dessus du contenu */
+.add-to-cart {
+    position: fixed; /* Position fixe énervante */
+    bottom: 50px;
+    right: 50px;
+    z-index: 1000;
+    background-color: red;
+    color: white;
+    padding: 15px 30px;
+    border: 5px double yellow;
+    font-weight: bold;
+    animation: pulse 1s infinite; /* Animation clignotante */
+    cursor: help; /* Curseur trompeur */
+}
+.retour {
+    position: fixed; /* Position fixe énervante */
+    bottom: 50px;
+    left: 50px;
+    z-index: 1000;
+    background-color: red;
+    color: white;
+    padding: 15px 30px;
+    border: 5px double yellow;
+    font-weight: bold;
+    animation: pulse 1s infinite; /* Animation clignotante */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Bouton de retour déroutant */
+.return-btn {
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    padding: 20px;
+    font-size: 24px;
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 15px; /* Espacement démesuré */
+    text-transform: capitalize;
+    font-family: monospace;
+    transition: background-color 0.05s; /* Temps de réaction lent */
+}
