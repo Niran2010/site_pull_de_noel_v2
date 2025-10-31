@@ -1,0 +1,410 @@
+#age-verification-popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0,0,0,0.95);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    z-index: 9999;
+    text-align: center;
+    padding: 20px;
+}
+#age-verification-popup button {
+    font-size: 2rem;
+    padding: 15px 40px;
+    margin: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    color: rgb(0,0,0);
+}
+#btn-yes {
+    background-color: #f79817;
+}
+#btn-no {
+    background-color: #f79817;
+}
+#access-denied-img {
+    max-width: 300px;
+    margin-top: 30px;
+    display: none;
+}
+/* CSS */
+/* Conteneur en haut, centré */
+.age-check-header{
+  width: 100%;
+  display: flex;
+  justify-content: center;      /* centre horizontalement */
+  padding: 12px 0;              /* espacement vertical autour du logo */
+  background: transparent;      /* ou #fff si tu veux un fond blanc */
+  z-index: 50;
+  /* si tu veux que la zone soit au-dessus d'autres éléments, laisse z-index */
+}
+
+/* Barre contenant le logo */
+.age-check-header {
+  position: absolute;         /* pour pouvoir le placer précisément */
+  top: 20px;                  /* distance depuis le haut de la page */
+  left: 50%;                  /* centre horizontalement */
+  transform: translateX(-50%);/* recentre le bloc sur l’axe horizontal */
+  background: transparent;    /* pas de fond par défaut */
+  z-index: 100;               /* au-dessus du reste du contenu */
+}
+
+/* Bloc autour du logo (style similaire à Pornhub) */
+.brand {
+  /* MODIFICATIONS POUR LE CENTRAGE HORIZONTAL */
+  display: block;        /* Change en bloc pour que margin: auto fonctionne */
+  margin-left: auto;     /* Pousse l'élément vers le centre */
+  margin-right: auto;    /* Pousse l'élément vers le centre */
+  margin-top: -200px;      /* Ajoute un petit espace en haut de la popup */
+  margin-bottom: 50px;   /* Ajoute un espace sous le logo pour séparer du texte */
+  /* ------------------------------------------- */
+  
+  /* Reste des styles originaux (ou légérement ajustés) */
+  background: #000;
+  padding: 6px 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  text-decoration: none;
+  transition: transform 0.15s ease;
+  height: 150px;               /* taille ajustable */
+  width: 300px;
+}
+
+/* Le reste du CSS (y compris #age-verification-popup) peut rester comme il était */
+/* Image du logo */
+.brand__img {
+  position : center;
+  height: 150px;               /* taille ajustable */
+  width: 300px;
+  display: block;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+/* Effet hover optionnel */
+.brand:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .age-check-header { top: 12px; }
+  .brand { padding: 4px 10px; border-radius: 8px; }
+  .brand__img { height: 36px; }
+}
+
+
+#txt-acce-refuse{
+    display: none;
+    text-align: center;
+    max-width: 90%;          /* évite de dépasser le cadre parent */
+    margin: 0 auto;          /* centre le bloc */
+    word-wrap: break-word;   /* casse les mots trop longs */
+    white-space: normal;    
+}
+
+#question{
+    display: block;
+}
+
+h1{
+    /*centre le texte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+
+    /*police affreuse*/
+    font-family: 'Dokdo', 'Comic Sans MS', 'Papyrus', fantasy, cursive;
+    font-size: 50px;
+    color: #ff0000; /* vert fluo */
+    background-color: #687c50d0; /* rose fluo */
+    line-height: 0.6;
+    letter-spacing: -2px;
+    word-spacing: 20px;
+    text-shadow: 3px 3px 1px #000, -2px -2px 0 #FFF;
+    transform: rotate(0.5deg);
+    font-weight: 900;
+    font-style: oblique;
+    text-transform: uppercase;
+    text-decoration: underline overline wavy rgb(188, 196, 196);
+    filter: blur(0.8px) contrast(200%) saturate(500%);  
+}
+
+body {
+    overflow: hidden; /* <-- AJOUTEZ CETTE LIGNE */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+  /* Icône burger */
+.menu-toggle {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 15px;
+    background: rgb(245, 7, 7);
+    color: rgb(102, 255, 0);
+    border: 15px solid rgba(23, 250, 2, 0.26);
+    border-radius: 190px;
+    box-shadow: 0 0 20px rgba(10, 10, 101, 110.3); 
+    position: relative;
+    top: 45vh;
+    left: 1500px;
+    z-index: 1001;
+    animation: tourner 2s linear infinite;
+}
+
+@keyframes tourner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+  /* Menu caché par défaut */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: rgb(255, 0, 0);
+    overflow: auto;
+    transition: left 9s ease;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.menu a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: rgb(0, 253, 76);
+    border-bottom: 1px solid rgb(0, 225, 255);
+    transition: background 0.2s;
+}
+
+.menu a:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+  /* Classe active : menu ouvert */
+.menu.open {
+    left: 0;
+}
+
+
+#cookie-banner{
+    display:none; 
+    position:fixed; 
+    bottom:20px; 
+    left:20px; 
+    right:20px; 
+    background:#333; 
+    color:white; 
+    padding:20px; 
+    border-radius:8px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3); 
+    z-index:1000;
+}
+#accept-cookies{
+    margin-left:20px; 
+    padding:10px 15px; 
+    background:#4caf50; 
+    color:white; 
+    border:none; 
+    border-radius:5px; 
+    cursor:pointer;
+}
+
+
+
+/* Conteneur principal pour la neige */
+#snow-container {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+/* Style de base pour chaque flocon */
+.snowflake {
+    position: absolute;
+    /* Important pour ne pas pouvoir cliquer sur les flocons */
+    pointer-events: none; 
+    /* Commence juste au-dessus de l'écran */
+    top: -50px; 
+    /* Applique les deux animations : chute et balancement */
+    animation: fall linear, sway linear infinite;
+}
+
+/* Élément pour afficher le compteur */
+#flake-counter-display {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-family: sans-serif;
+    z-index: 100;
+}
+
+
+/* --- Animations --- */
+
+/* Animation de la chute (verticale) */
+/* --- Animations --- */
+
+/* CORRECTION : Animation de la chute (verticale) */
+/* On anime la propriété 'top' pour ne pas entrer en conflit avec 'transform' de l'animation sway */
+@keyframes fall {
+    to {
+        top: 100%; /* Le flocon se déplace jusqu'en bas de son conteneur */
+    }
+}
+
+/* Animation du balancement (horizontal) - INCHANGÉE */
+@keyframes sway {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(40px);
+    }
+}
+
+
+/* style.css */
+
+/* ================================================= */
+/* POP-UP TRES ÉNERVANT POUR LA VARIABLE QUI EXCÈDE  */
+/* ================================================= */
+
+#popup-genant {
+    cursor: pointer;
+    pointer-events: auto;
+    /* POSITIONNEMENT : Milieu du 'rectangle' HAUT-DROITE */
+    position: fixed; 
+    top: 7vh;       /* 25% du haut (milieu de 0% et 50%) */
+    right: 7vw;     /* 25% de la droite (milieu de 0% et 50%) */
+    
+    width: 300px;
+    padding: 20px;
+    background-color: #ff0000; /* ROUGE AGRESSIF */
+    border: 10px double yellow; /* BORDURE LAIDE */
+    text-align: center;
+    z-index: 99999; /* AU-DESSUS DE TOUT, même l'âge-popup */
+    
+    /* Style initial : masqué et déformé */
+    display: none; 
+    opacity: 0;
+    transform: scale(0.1) rotate(0deg); 
+    /* Transition pour que le JS n'ait pas à gérer l'animation */
+    transition: all 0.1s ease-in-out; 
+}
+
+#popup-genant #popup-img {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+#popup-genant #popup-text {
+    color: #00ff00; /* Vert fluo sur rouge */
+    font-family: 'Comic Sans MS', cursive; /* Police horrible */
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px #0000ff; /* Ombre bleue électrique */
+}
+
+/* CLASSE ACTIVE : APPARITION ET ANIMATION INTEMPESTIVE */
+#popup-genant.actif {
+    display: block;
+    /* Animation d'apparition rapide */
+    animation: sursaut-pop 0.2s ease-out forwards,
+               tremblement 0.1s infinite alternate,
+               couleur-clignotante 0.5s infinite step-start;
+}
+
+/* 1. Animation de Sursaut/Pop-up */
+@keyframes sursaut-pop {
+    0% { transform: scale(0.1) rotate(0deg); opacity: 0; }
+    50% { transform: scale(1.3) rotate(-15deg); opacity: 1; } /* Sursaut violent */
+    100% { transform: scale(1) rotate(5deg); opacity: 1; } /* Position finale légèrement inclinée */
+}
+
+/* 2. Animation de Tremblement très rapide */
+@keyframes tremblement {
+    0% { transform: translate(3px, 3px); }
+    33% { transform: translate(-3px, -3px); }
+    66% { transform: translate(3px, -3px); }
+    100% { transform: translate(-3px, 3px); }
+}
+
+/* 3. Animation de Clignotement de fond */
+@keyframes couleur-clignotante {
+    0% { background-color: #ff0000; }
+    50% { background-color: #ffff00; } /* Rouge -> Jaune vif */
+}
+
+/* style.css */
+
+/* Styles pour le bloc de paiement */
+#demande-paiement {
+    display: none;
+    position: fixed; 
+    top: 50vh;       /* 25% du haut (milieu de 0% et 50%) */
+    right: 50vw; 
+    margin-top: 15px;
+    padding: 10px;
+    border: 3px solid #00ff00; /* Vert fluo */
+    background-color: #0000ff; /* Bleu électrique */
+}
+
+#demande-paiement p {
+    color: white;
+    font-size: 18px;
+    font-family: Arial Black, sans-serif;
+    margin-bottom: 10px;
+}
+
+#rib-paypal-input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    /* Style moche */
+    border: 5px dashed #ff0000;
+    background-color: #ffff00; /* Jaune */
+    color: #ff0000;
+    font-size: 16px;
+}
+
+#btn-valider-paiement {
+    padding: 10px 20px;
+    /* Style moche */
+    background-color: #ff00ff; /* Fuchsia */
+    color: black;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #00ff00;
+    transition: box-shadow 0.1s;
+}
+
+#btn-valider-paiement:active {
+    box-shadow: 1px 1px 0 #00ff00; /* Effet de clic qui s'enfonce */
+}
+
+#popup-genant.clique-pour-payer #demande-paiement {
+    display: block;
+}
